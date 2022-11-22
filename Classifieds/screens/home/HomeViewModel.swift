@@ -18,6 +18,9 @@ class HomeViewModel: ObservableObject {
     @Published
     private(set) var listings: [Listing] = []
     
+    @Published
+    var selectedListing: Listing?
+    
     private var cancellables: Set<AnyCancellable> = []
     
     // MARK: - Lifecycle

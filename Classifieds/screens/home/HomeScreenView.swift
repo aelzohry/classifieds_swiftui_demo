@@ -16,17 +16,28 @@ struct HomeScreenView: View {
                 if (viewModel.isLoading) {
                     ProgressView()
                 } else {
-                    List(viewModel.listings) { listing in
-                        ListingView(listing: listing)
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
-                    }
-                    .listStyle(.plain)
+                    listingsList
                 }
             }
             .navigationTitle("Listings")
+            .sheet(item: $viewModel.selectedListing) { listing in
+                ListingDetailsScreenView(listing: listing)
+            }
         }
     }
+    
+    private var listingsList: some View {
+        List(viewModel.listings) { listing in
+            ListingView(listing: listing)
+                .listRowSeparator(.hidden)
+                .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+                .onTapGesture {
+                    viewModel.selectedListing = listing
+                }
+        }
+        .listStyle(.plain)
+    }
+    
 }
 
 struct HomeScreenView_Previews: PreviewProvider {
