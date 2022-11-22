@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    let listings = [Listing](repeating: .sample, count: 10)
+    @ObservedObject private var viewModel = HomeViewModel()
     
     var body: some View {
         NavigationView {
-            List(listings) { listing in
-                ListingView(listing: listing)
-                    .listRowSeparator(.hidden)
-                    .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+            ZStack {
+                if (viewModel.isLoading) {
+                    ProgressView()
+                } else {
+                    List(viewModel.listings) { listing in
+                        ListingView(listing: listing)
+                            .listRowSeparator(.hidden)
+                            .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
+                    }
+                    .listStyle(.plain)
+                }
             }
-            .listStyle(.plain)
             .navigationTitle("Listings")
         }
     }

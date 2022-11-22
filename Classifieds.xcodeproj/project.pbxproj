@@ -14,6 +14,7 @@
 		46279AD9292D241C00C6971E /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AD8292D241C00C6971E /* Listing.swift */; };
 		46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ADA292D250D00C6971E /* ListingsResponse.swift */; };
 		46279ADF292D389F00C6971E /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ADE292D389F00C6971E /* ListingView.swift */; };
+		46279AE1292D485F00C6971E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE0292D485F00C6971E /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		46279AD8292D241C00C6971E /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		46279ADA292D250D00C6971E /* ListingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsResponse.swift; sourceTree = "<group>"; };
 		46279ADE292D389F00C6971E /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
+		46279AE0292D485F00C6971E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				46279ACB292D1D7400C6971E /* HomeScreenView.swift */,
+				46279AE0292D485F00C6971E /* HomeViewModel.swift */,
 				46279ADE292D389F00C6971E /* ListingView.swift */,
 			);
 			path = home;
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46279ACC292D1D7400C6971E /* HomeScreenView.swift in Sources */,
+				46279AE1292D485F00C6971E /* HomeViewModel.swift in Sources */,
 				46279ADF292D389F00C6971E /* ListingView.swift in Sources */,
 				46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */,
 				46279AD9292D241C00C6971E /* Listing.swift in Sources */,
