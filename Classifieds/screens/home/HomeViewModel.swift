@@ -38,6 +38,11 @@ class HomeViewModel: ObservableObject {
         
         URLSession.shared.dataTaskPublisher(for: url)
             // handle loading state
+            .map { $0.data }
+            .decode(type: ListingsResponse.self, decoder: jsonDecoder)
+            // only care about listings array
+            .map { $0.results }
+            .receive(on: DispatchQueue.main)
             .handleEvents(
                 receiveSubscription: { [unowned self] _ in
                     isLoading = true
@@ -49,10 +54,6 @@ class HomeViewModel: ObservableObject {
                     isLoading = false
                 }
             )
-            .map { $0.data }
-            .decode(type: ListingsResponse.self, decoder: jsonDecoder)
-            // only care about listings array
-            .map { $0.results }
             .sink(receiveCompletion: {
                 print("Completion: \($0)")
             }, receiveValue: { listings in
