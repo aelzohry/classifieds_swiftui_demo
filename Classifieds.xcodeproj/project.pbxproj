@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		46279ACA292D1D7400C6971E /* ClassifiedsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AC9292D1D7400C6971E /* ClassifiedsApp.swift */; };
-		46279ACC292D1D7400C6971E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ACB292D1D7400C6971E /* ContentView.swift */; };
+		46279ACC292D1D7400C6971E /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ACB292D1D7400C6971E /* HomeScreenView.swift */; };
 		46279ACE292D1D7600C6971E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46279ACD292D1D7600C6971E /* Assets.xcassets */; };
 		46279AD1292D1D7600C6971E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46279AD0292D1D7600C6971E /* Preview Assets.xcassets */; };
 		46279AD9292D241C00C6971E /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AD8292D241C00C6971E /* Listing.swift */; };
 		46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ADA292D250D00C6971E /* ListingsResponse.swift */; };
+		46279ADF292D389F00C6971E /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ADE292D389F00C6971E /* ListingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		46279AC6292D1D7400C6971E /* Classifieds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifieds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46279AC9292D1D7400C6971E /* ClassifiedsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsApp.swift; sourceTree = "<group>"; };
-		46279ACB292D1D7400C6971E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		46279ACB292D1D7400C6971E /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
 		46279ACD292D1D7600C6971E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46279AD0292D1D7600C6971E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46279AD8292D241C00C6971E /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		46279ADA292D250D00C6971E /* ListingsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsResponse.swift; sourceTree = "<group>"; };
+		46279ADE292D389F00C6971E /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				46279AD7292D235400C6971E /* models */,
+				46279ADC292D2C4300C6971E /* screens */,
 				46279AC9292D1D7400C6971E /* ClassifiedsApp.swift */,
-				46279ACB292D1D7400C6971E /* ContentView.swift */,
 				46279ACD292D1D7600C6971E /* Assets.xcassets */,
 				46279ACF292D1D7600C6971E /* Preview Content */,
 			);
@@ -79,6 +81,23 @@
 				46279ADA292D250D00C6971E /* ListingsResponse.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		46279ADC292D2C4300C6971E /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				46279ADD292D2CAC00C6971E /* home */,
+			);
+			path = screens;
+			sourceTree = "<group>";
+		};
+		46279ADD292D2CAC00C6971E /* home */ = {
+			isa = PBXGroup;
+			children = (
+				46279ACB292D1D7400C6971E /* HomeScreenView.swift */,
+				46279ADE292D389F00C6971E /* ListingView.swift */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46279ACC292D1D7400C6971E /* ContentView.swift in Sources */,
+				46279ACC292D1D7400C6971E /* HomeScreenView.swift in Sources */,
+				46279ADF292D389F00C6971E /* ListingView.swift in Sources */,
 				46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */,
 				46279AD9292D241C00C6971E /* Listing.swift in Sources */,
 				46279ACA292D1D7400C6971E /* ClassifiedsApp.swift in Sources */,
