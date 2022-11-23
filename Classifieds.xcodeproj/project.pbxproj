@@ -19,6 +19,9 @@
 		46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE6292DAC9100C6971E /* ListingsService.swift */; };
 		46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE8292DACD700C6971E /* NetworkListingsService.swift */; };
 		46279AEC292DB9F500C6971E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AEB292DB9F500C6971E /* HTTPClient.swift */; };
+		46279AF2292DC58400C6971E /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF1292DC58400C6971E /* CachedAsyncImage.swift */; };
+		46279AF5292DE74500C6971E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF4292DE74500C6971E /* ImageCache.swift */; };
+		46279AF7292DE7E600C6971E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF6292DE7E600C6971E /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		46279AE6292DAC9100C6971E /* ListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
 		46279AE8292DACD700C6971E /* NetworkListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListingsService.swift; sourceTree = "<group>"; };
 		46279AEB292DB9F500C6971E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		46279AF1292DC58400C6971E /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		46279AF4292DE74500C6971E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		46279AF6292DE7E600C6971E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				46279AE5292DAC6F00C6971E /* data */,
+				46279AF0292DC2AD00C6971E /* utils */,
 				46279ADC292D2C4300C6971E /* screens */,
 				46279AC9292D1D7400C6971E /* ClassifiedsApp.swift */,
 				46279ACD292D1D7600C6971E /* Assets.xcassets */,
@@ -139,6 +146,24 @@
 			path = network;
 			sourceTree = "<group>";
 		};
+		46279AF0292DC2AD00C6971E /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				46279AF3292DE71F00C6971E /* CachedAsyncImage */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		46279AF3292DE71F00C6971E /* CachedAsyncImage */ = {
+			isa = PBXGroup;
+			children = (
+				46279AF1292DC58400C6971E /* CachedAsyncImage.swift */,
+				46279AF4292DE74500C6971E /* ImageCache.swift */,
+				46279AF6292DE7E600C6971E /* ImageLoader.swift */,
+			);
+			path = CachedAsyncImage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,6 +180,8 @@
 			dependencies = (
 			);
 			name = Classifieds;
+			packageProductDependencies = (
+			);
 			productName = Classifieds;
 			productReference = 46279AC6292D1D7400C6971E /* Classifieds.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +210,8 @@
 				Base,
 			);
 			mainGroup = 46279ABD292D1D7400C6971E;
+			packageReferences = (
+			);
 			productRefGroup = 46279AC7292D1D7400C6971E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,10 +244,13 @@
 				46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */,
 				46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */,
 				46279AD9292D241C00C6971E /* Listing.swift in Sources */,
+				46279AF5292DE74500C6971E /* ImageCache.swift in Sources */,
+				46279AF2292DC58400C6971E /* CachedAsyncImage.swift in Sources */,
 				46279AEC292DB9F500C6971E /* HTTPClient.swift in Sources */,
 				46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */,
 				46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */,
 				46279ACA292D1D7400C6971E /* ClassifiedsApp.swift in Sources */,
+				46279AF7292DE7E600C6971E /* ImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
