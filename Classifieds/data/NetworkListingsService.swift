@@ -8,16 +8,20 @@
 import Foundation
 import Combine
 
-class NetworkListingsService: ListingsService {
+struct NetworkListingsService: ListingsService {
+    
+    let httpClient: Requestable
+    
+    init(httpClient: Requestable = HTTPClient()) {
+        self.httpClient = httpClient
+    }
     
     func fetchListings() -> AnyPublisher<[Listing], Error> {
         let url = URL(string: "https://ey3f2y0nre.execute-api.us-east-1.amazonaws.com/default/dynamodb-writer")!
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        let request = URLRequest(url: url)
         
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map(\.data)
-            .decode(type: ListingsResponse.self, decoder: jsonDecoder)
+        return httpClient
+            .make(request, type: ListingsResponse.self)
             .map(\.results)
             .eraseToAnyPublisher()
     }

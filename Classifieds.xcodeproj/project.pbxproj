@@ -18,6 +18,7 @@
 		46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE3292D585D00C6971E /* ListingDetailsScreenView.swift */; };
 		46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE6292DAC9100C6971E /* ListingsService.swift */; };
 		46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE8292DACD700C6971E /* NetworkListingsService.swift */; };
+		46279AEC292DB9F500C6971E /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AEB292DB9F500C6971E /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		46279AE3292D585D00C6971E /* ListingDetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsScreenView.swift; sourceTree = "<group>"; };
 		46279AE6292DAC9100C6971E /* ListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
 		46279AE8292DACD700C6971E /* NetworkListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListingsService.swift; sourceTree = "<group>"; };
+		46279AEB292DB9F500C6971E /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +123,20 @@
 		46279AE5292DAC6F00C6971E /* data */ = {
 			isa = PBXGroup;
 			children = (
+				46279AEA292DB9E500C6971E /* network */,
 				46279AD7292D235400C6971E /* models */,
 				46279AE6292DAC9100C6971E /* ListingsService.swift */,
 				46279AE8292DACD700C6971E /* NetworkListingsService.swift */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		46279AEA292DB9E500C6971E /* network */ = {
+			isa = PBXGroup;
+			children = (
+				46279AEB292DB9F500C6971E /* HTTPClient.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +215,7 @@
 				46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */,
 				46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */,
 				46279AD9292D241C00C6971E /* Listing.swift in Sources */,
+				46279AEC292DB9F500C6971E /* HTTPClient.swift in Sources */,
 				46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */,
 				46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */,
 				46279ACA292D1D7400C6971E /* ClassifiedsApp.swift in Sources */,
