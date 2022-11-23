@@ -17,6 +17,10 @@ class HomeViewModel: ObservableObject {
         case failed(Error)
     }
     
+    // MARK: - Dependencies
+    
+    private let listingsService: ListingsService
+    
     
     // MARK: - Properties
     
@@ -29,7 +33,8 @@ class HomeViewModel: ObservableObject {
     
     // MARK: - Lifecycle
     
-    init() {
+    init(listingsService: ListingsService = NetworkListingsService()) {
+        self.listingsService = listingsService
         fetchData()
     }
     
@@ -39,16 +44,7 @@ class HomeViewModel: ObservableObject {
     func fetchData() {
         loadingState = .loading
         
-        let url = URL(string: "https://ey3f2y0nre.execute-api.us-east-1.amazonaws.com/default/dynamodb-writer")!
-        let jsonDecoder = JSONDecoder()
-        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-        
-        URLSession.shared.dataTaskPublisher(for: url)
-            // handle loading state
-            .map(\.data)
-            .decode(type: ListingsResponse.self, decoder: jsonDecoder)
-            // only care about listings array
-            .map(\.results)
+        listingsService.fetchListings()
             .map(LoadingState.loaded)
             .catch { error in
                 Just(.failed(error))

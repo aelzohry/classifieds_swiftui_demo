@@ -16,6 +16,8 @@
 		46279ADF292D389F00C6971E /* ListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279ADE292D389F00C6971E /* ListingView.swift */; };
 		46279AE1292D485F00C6971E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE0292D485F00C6971E /* HomeViewModel.swift */; };
 		46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE3292D585D00C6971E /* ListingDetailsScreenView.swift */; };
+		46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE6292DAC9100C6971E /* ListingsService.swift */; };
+		46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AE8292DACD700C6971E /* NetworkListingsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		46279ADE292D389F00C6971E /* ListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingView.swift; sourceTree = "<group>"; };
 		46279AE0292D485F00C6971E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		46279AE3292D585D00C6971E /* ListingDetailsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsScreenView.swift; sourceTree = "<group>"; };
+		46279AE6292DAC9100C6971E /* ListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsService.swift; sourceTree = "<group>"; };
+		46279AE8292DACD700C6971E /* NetworkListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkListingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,7 @@
 		46279AC8292D1D7400C6971E /* Classifieds */ = {
 			isa = PBXGroup;
 			children = (
-				46279AD7292D235400C6971E /* models */,
+				46279AE5292DAC6F00C6971E /* data */,
 				46279ADC292D2C4300C6971E /* screens */,
 				46279AC9292D1D7400C6971E /* ClassifiedsApp.swift */,
 				46279ACD292D1D7600C6971E /* Assets.xcassets */,
@@ -112,6 +116,16 @@
 				46279AE3292D585D00C6971E /* ListingDetailsScreenView.swift */,
 			);
 			path = details;
+			sourceTree = "<group>";
+		};
+		46279AE5292DAC6F00C6971E /* data */ = {
+			isa = PBXGroup;
+			children = (
+				46279AD7292D235400C6971E /* models */,
+				46279AE6292DAC9100C6971E /* ListingsService.swift */,
+				46279AE8292DACD700C6971E /* NetworkListingsService.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +204,8 @@
 				46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */,
 				46279ADB292D250D00C6971E /* ListingsResponse.swift in Sources */,
 				46279AD9292D241C00C6971E /* Listing.swift in Sources */,
+				46279AE7292DAC9100C6971E /* ListingsService.swift in Sources */,
+				46279AE9292DACD700C6971E /* NetworkListingsService.swift in Sources */,
 				46279ACA292D1D7400C6971E /* ClassifiedsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
