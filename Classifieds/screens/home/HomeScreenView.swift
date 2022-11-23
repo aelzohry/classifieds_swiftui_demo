@@ -35,6 +35,9 @@ struct HomeScreenView: View {
             .sheet(item: $viewModel.selectedListing) { listing in
                 ListingDetailsScreenView(listing: listing)
             }
+            .task {
+                viewModel.fetchData()
+            }
         }
     }
     

@@ -10,11 +10,19 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
-    enum LoadingState {
+    enum LoadingState: Equatable {
         case idle
         case loading
         case loaded([Listing])
         case failed(Error)
+        
+        var value: String {
+            return String(describing: self)
+        }
+        
+        static func == (lhs: LoadingState, rhs: LoadingState) -> Bool {
+            lhs.value == rhs.value
+        }
     }
     
     // MARK: - Dependencies
@@ -35,7 +43,6 @@ class HomeViewModel: ObservableObject {
     
     init(listingsService: ListingsService = NetworkListingsService()) {
         self.listingsService = listingsService
-        fetchData()
     }
     
     

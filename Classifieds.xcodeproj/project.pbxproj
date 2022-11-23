@@ -24,7 +24,19 @@
 		46279AF7292DE7E600C6971E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF6292DE7E600C6971E /* ImageLoader.swift */; };
 		46279AF9292DEB6600C6971E /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF8292DEB6600C6971E /* ListingViewModel.swift */; };
 		46279AFB292DF9EA00C6971E /* ListingDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AFA292DF9EA00C6971E /* ListingDetailsViewModel.swift */; };
+		46279B0A292E017D00C6971E /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279B09292E017D00C6971E /* HomeViewModelTests.swift */; };
+		46279B0C292E032500C6971E /* MockListingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279B0B292E032500C6971E /* MockListingsService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46279B04292E014900C6971E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46279ABE292D1D7400C6971E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46279AC5292D1D7400C6971E;
+			remoteInfo = Classifieds;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		46279AC6292D1D7400C6971E /* Classifieds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifieds.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,10 +57,20 @@
 		46279AF6292DE7E600C6971E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		46279AF8292DEB6600C6971E /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
 		46279AFA292DF9EA00C6971E /* ListingDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailsViewModel.swift; sourceTree = "<group>"; };
+		46279B00292E014800C6971E /* ClassifiedsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassifiedsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46279B09292E017D00C6971E /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		46279B0B292E032500C6971E /* MockListingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockListingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		46279AC3292D1D7400C6971E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46279AFD292E014800C6971E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -62,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				46279AC8292D1D7400C6971E /* Classifieds */,
+				46279B01292E014900C6971E /* ClassifiedsTests */,
 				46279AC7292D1D7400C6971E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				46279AC6292D1D7400C6971E /* Classifieds.app */,
+				46279B00292E014800C6971E /* ClassifiedsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +194,15 @@
 			path = CachedAsyncImage;
 			sourceTree = "<group>";
 		};
+		46279B01292E014900C6971E /* ClassifiedsTests */ = {
+			isa = PBXGroup;
+			children = (
+				46279B09292E017D00C6971E /* HomeViewModelTests.swift */,
+				46279B0B292E032500C6971E /* MockListingsService.swift */,
+			);
+			path = ClassifiedsTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +225,24 @@
 			productReference = 46279AC6292D1D7400C6971E /* Classifieds.app */;
 			productType = "com.apple.product-type.application";
 		};
+		46279AFF292E014800C6971E /* ClassifiedsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46279B06292E014900C6971E /* Build configuration list for PBXNativeTarget "ClassifiedsTests" */;
+			buildPhases = (
+				46279AFC292E014800C6971E /* Sources */,
+				46279AFD292E014800C6971E /* Frameworks */,
+				46279AFE292E014800C6971E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46279B05292E014900C6971E /* PBXTargetDependency */,
+			);
+			name = ClassifiedsTests;
+			productName = ClassifiedsTests;
+			productReference = 46279B00292E014800C6971E /* ClassifiedsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +255,10 @@
 				TargetAttributes = {
 					46279AC5292D1D7400C6971E = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					46279AFF292E014800C6971E = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 46279AC5292D1D7400C6971E;
 					};
 				};
 			};
@@ -223,6 +278,7 @@
 			projectRoot = "";
 			targets = (
 				46279AC5292D1D7400C6971E /* Classifieds */,
+				46279AFF292E014800C6971E /* ClassifiedsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +290,13 @@
 			files = (
 				46279AD1292D1D7600C6971E /* Preview Assets.xcassets in Resources */,
 				46279ACE292D1D7600C6971E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46279AFE292E014800C6971E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +325,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		46279AFC292E014800C6971E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46279B0C292E032500C6971E /* MockListingsService.swift in Sources */,
+				46279B0A292E017D00C6971E /* HomeViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46279B05292E014900C6971E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46279AC5292D1D7400C6971E /* Classifieds */;
+			targetProxy = 46279B04292E014900C6971E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		46279AD2292D1D7600C6971E /* Debug */ = {
@@ -437,6 +517,42 @@
 			};
 			name = Release;
 		};
+		46279B07292E014900C6971E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KYCVLD89Y4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aelzohry.ClassifiedsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classifieds.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Classifieds";
+			};
+			name = Debug;
+		};
+		46279B08292E014900C6971E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KYCVLD89Y4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aelzohry.ClassifiedsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Classifieds.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Classifieds";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,6 +570,15 @@
 			buildConfigurations = (
 				46279AD5292D1D7600C6971E /* Debug */,
 				46279AD6292D1D7600C6971E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46279B06292E014900C6971E /* Build configuration list for PBXNativeTarget "ClassifiedsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46279B07292E014900C6971E /* Debug */,
+				46279B08292E014900C6971E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
