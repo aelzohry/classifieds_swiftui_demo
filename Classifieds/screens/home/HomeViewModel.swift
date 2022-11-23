@@ -19,6 +19,9 @@ class HomeViewModel: ObservableObject {
     private(set) var listings: [Listing] = []
     
     @Published
+    private(set) var error: Error?
+    
+    @Published
     var selectedListing: Listing?
     
     private var cancellables: Set<AnyCancellable> = []
@@ -32,6 +35,9 @@ class HomeViewModel: ObservableObject {
     // MARK: - Fetching Data
     
     func fetchData() {
+        // clear previous error if found
+        error = nil
+        
         let url = URL(string: "https://ey3f2y0nre.execute-api.us-east-1.amazonaws.com/default/dynamodb-writer")!
         let jsonDecoder = JSONDecoder()
         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -54,6 +60,10 @@ class HomeViewModel: ObservableObject {
                     isLoading = false
                 }
             )
+            .catch { error -> Just<[Listing]> in
+                self.error = error
+                return Just([])
+            }
             .sink(receiveCompletion: {
                 print("Completion: \($0)")
             }, receiveValue: { listings in

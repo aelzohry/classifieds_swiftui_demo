@@ -15,8 +15,10 @@ struct HomeScreenView: View {
             ZStack {
                 if (viewModel.isLoading) {
                     ProgressView()
+                } else if let error = viewModel.error {
+                    errorView(error)
                 } else {
-                    listingsList
+                    listingsListView
                 }
             }
             .navigationTitle("Listings")
@@ -26,7 +28,7 @@ struct HomeScreenView: View {
         }
     }
     
-    private var listingsList: some View {
+    private var listingsListView: some View {
         List(viewModel.listings) { listing in
             ListingView(listing: listing)
                 .listRowSeparator(.hidden)
@@ -36,6 +38,25 @@ struct HomeScreenView: View {
                 }
         }
         .listStyle(.plain)
+    }
+    
+    private func errorView(_ error: Error) -> some View {
+        VStack(spacing: 10) {
+            Text("Error loading listing data")
+            
+            Text(error.localizedDescription)
+                .multilineTextAlignment(.center)
+                .font(.callout)
+                .foregroundColor(.gray)
+            
+            Button("RETRY") {
+                viewModel.fetchData()
+            }
+        }
+        .padding()
+        .background(Color.yellow)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding()
     }
     
 }
