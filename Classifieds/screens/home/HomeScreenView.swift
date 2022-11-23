@@ -18,7 +18,11 @@ struct HomeScreenView: View {
                     ProgressView()
                     
                 case .loaded(let listing):
-                    listingsListView(listing)
+                    if listing.isEmpty {
+                        noDataView
+                    } else {
+                        listingsListView(listing)
+                    }
                     
                 case .failed(let error):
                     errorView(error)
@@ -63,6 +67,11 @@ struct HomeScreenView: View {
         .background(Color.yellow)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding()
+    }
+    
+    private var noDataView: some View {
+        Text("No listing data found")
+            .foregroundColor(.gray)
     }
     
 }
