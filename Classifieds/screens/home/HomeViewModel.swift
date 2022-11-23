@@ -10,21 +10,22 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     
+    enum LoadingState {
+        case idle
+        case loading
+        case loaded([Listing])
+        case failed(Error)
+    }
+    
+    
     // MARK: - Properties
     
     @Published
-    private(set) var isLoading: Bool = false
-    
-    @Published
-    private(set) var listings: [Listing] = []
-    
-    @Published
-    private(set) var error: Error?
+    private(set) var loadingState: LoadingState = .idle
     
     @Published
     var selectedListing: Listing?
-    
-    private var cancellables: Set<AnyCancellable> = []
+        
     
     // MARK: - Lifecycle
     
@@ -32,11 +33,11 @@ class HomeViewModel: ObservableObject {
         fetchData()
     }
     
+    
     // MARK: - Fetching Data
     
     func fetchData() {
-        // clear previous error if found
-        error = nil
+        loadingState = .loading
         
         let url = URL(string: "https://ey3f2y0nre.execute-api.us-east-1.amazonaws.com/default/dynamodb-writer")!
         let jsonDecoder = JSONDecoder()
@@ -44,33 +45,16 @@ class HomeViewModel: ObservableObject {
         
         URLSession.shared.dataTaskPublisher(for: url)
             // handle loading state
-            .map { $0.data }
+            .map(\.data)
             .decode(type: ListingsResponse.self, decoder: jsonDecoder)
             // only care about listings array
-            .map { $0.results }
-            .receive(on: DispatchQueue.main)
-            .handleEvents(
-                receiveSubscription: { [unowned self] _ in
-                    isLoading = true
-                },
-                receiveCompletion: { [unowned self] _ in
-                    isLoading = false
-                },
-                receiveCancel: { [unowned self] in
-                    isLoading = false
-                }
-            )
-            .catch { error -> Just<[Listing]> in
-                self.error = error
-                return Just([])
+            .map(\.results)
+            .map(LoadingState.loaded)
+            .catch { error in
+                Just(.failed(error))
             }
-            .sink(receiveCompletion: {
-                print("Completion: \($0)")
-            }, receiveValue: { listings in
-                self.listings = listings
-                print("Received listings: \(listings.count)")
-            })
-            .store(in: &cancellables)
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$loadingState)
     }
     
 }

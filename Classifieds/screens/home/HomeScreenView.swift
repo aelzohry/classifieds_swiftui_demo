@@ -13,12 +13,18 @@ struct HomeScreenView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if (viewModel.isLoading) {
+                switch viewModel.loadingState {
+                case .loading:
                     ProgressView()
-                } else if let error = viewModel.error {
+                    
+                case .loaded(let listing):
+                    listingsListView(listing)
+                    
+                case .failed(let error):
                     errorView(error)
-                } else {
-                    listingsListView
+                    
+                case .idle:
+                    EmptyView()
                 }
             }
             .navigationTitle("Listings")
@@ -28,8 +34,8 @@ struct HomeScreenView: View {
         }
     }
     
-    private var listingsListView: some View {
-        List(viewModel.listings) { listing in
+    private func listingsListView(_ listings: [Listing]) -> some View {
+        List(listings) { listing in
             ListingView(listing: listing)
                 .listRowSeparator(.hidden)
                 .listRowInsets(.init(top: 5, leading: 10, bottom: 5, trailing: 10))
