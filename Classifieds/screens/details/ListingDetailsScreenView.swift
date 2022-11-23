@@ -10,10 +10,10 @@ import SwiftUI
 struct ListingDetailsScreenView: View {
     @Environment(\.dismiss) private var dismiss
     
-    let listing: Listing
+    private let viewModel: ListingDetailsViewModel
     
-    var imageUrls: [URL] {
-        listing.imageUrls.compactMap(URL.init)
+    init(listing: Listing) {
+        viewModel = ListingDetailsViewModel(listing: listing)
     }
     
     var body: some View {
@@ -21,21 +21,22 @@ struct ListingDetailsScreenView: View {
             VStack {
                 imagesSlider
                 
-                Text(listing.name)
+                Text(viewModel.name)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
-                
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    
                 HStack {
-                    Text(
-                        listing.createdAt
-                            .formatted(
-                                .relative(presentation: .named)
-                            )
-                    )
+                    Text(viewModel.date)
+                    
                     Spacer()
-                    Text(listing.price)
+                    
+                    Text(viewModel.price)
+                        .fontWeight(.semibold)
                 }
                 .padding()
+                .background(Color(white: 0.8))
                 
                 Spacer()
             }
@@ -53,7 +54,7 @@ struct ListingDetailsScreenView: View {
         GeometryReader { proxy in
             ScrollView(.horizontal) {
                 LazyHStack(alignment: .top, spacing: 10) {
-                    ForEach(imageUrls, id: \.self) { imageUrl in
+                    ForEach(viewModel.imageUrls, id: \.self) { imageUrl in
                         ImageView(imageUrl: imageUrl, size: proxy.size)
                     }
                 }
@@ -73,7 +74,7 @@ struct ListingDetailsScreenView: View {
                     Image(systemName: "questionmark.diamond.fill")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(.white)
+                        .foregroundColor(.gray)
                         .padding()
                 },
                 image: { uiImage in
