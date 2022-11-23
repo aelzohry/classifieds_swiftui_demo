@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ListingView: View {
+    
     private let listingViewModel: ListingViewModel
     
     init(listing: Listing) {
@@ -55,7 +56,10 @@ struct ListingView: View {
                 .shadow(.drop(radius: 5, x: 2, y: 2))
         )
     }
+    
 }
+
+// MARK: - Previews
 
 struct ListingView_Previews: PreviewProvider {
     static var previews: some View {

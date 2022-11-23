@@ -21,7 +21,7 @@ struct NetworkListingsService: ListingsService {
         let request = URLRequest(url: url)
         
         return httpClient
-            .make(request, type: ListingsResponse.self)
+            .make(ListingsResponse.self, from: request)
             .map(\.results)
             .eraseToAnyPublisher()
     }

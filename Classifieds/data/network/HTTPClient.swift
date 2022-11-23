@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol Requestable {
-    func make<T: Decodable>(_ request: URLRequest, type: T.Type) -> AnyPublisher<T, Error>
+    func make<T: Decodable>(_ type: T.Type, from request: URLRequest) -> AnyPublisher<T, Error>
 }
 
 struct HTTPClient: Requestable {
@@ -33,7 +33,7 @@ struct HTTPClient: Requestable {
         self.decoder = decoder
     }
     
-    func make<T: Decodable>(_ request: URLRequest, type: T.Type) -> AnyPublisher<T, Error> {
+    func make<T: Decodable>(_ type: T.Type, from request: URLRequest) -> AnyPublisher<T, Error> {
         session.dataTaskPublisher(for: request)
             .map(\.data)
             .decode(type: type, decoder: decoder)

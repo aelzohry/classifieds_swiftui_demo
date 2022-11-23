@@ -43,6 +43,7 @@ struct CachedAsyncImage<Placeholder: View, ErrorView: View, ImageView: View>: Vi
             }
         }
     }
+    
 }
 
 struct CachedAsyncImage_Previews: PreviewProvider {
