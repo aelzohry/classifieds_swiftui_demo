@@ -54,7 +54,7 @@ struct ListingDetailsScreenView: View {
                 }
             }
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 250)
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 300)
     }
     
     private struct ImageView: View {
@@ -62,21 +62,21 @@ struct ListingDetailsScreenView: View {
         let size: CGSize
         
         var body: some View {
-            AsyncImage(url: imageUrl) { phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFill()
-                } else if let _ = phase.error {
+            CachedAsyncImage(
+                url: imageUrl,
+                error: { _ in
                     Image(systemName: "questionmark.diamond.fill")
                         .resizable()
                         .scaledToFit()
-                        .foregroundColor(.gray)
+                        .foregroundColor(.white)
                         .padding()
-                } else {
-                    ProgressView()
+                },
+                image: { uiImage in
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
                 }
-            }
+            )
             .frame(width: size.width, height: size.height)
         }
     }

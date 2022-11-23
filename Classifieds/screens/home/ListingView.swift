@@ -11,13 +11,14 @@ struct ListingView: View {
     let listing: Listing
     
     var body: some View {
-        HStack(alignment: .top) {
+        HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 4) {
                 Text(listing.createdAt)
                     .font(.caption)
                 
                 Text(listing.name)
                     .fontWeight(.heavy)
+                    .lineLimit(1)
                 
                 Text(listing.price)
                     .fontWeight(.semibold)
@@ -27,26 +28,22 @@ struct ListingView: View {
             Spacer()
             
             if let thumbnailUrl = listing.thumbnailUrl {
-                AsyncImage(url: thumbnailUrl) {
-                    phase in
-                    if let image = phase.image {
-                        // image loaded, present it
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } else if let _ = phase.error {
-                        // failed to load the image
+                CachedAsyncImage(
+                    url: thumbnailUrl,
+                    error: { _ in
                         Image(systemName: "questionmark.diamond.fill")
                             .resizable()
                             .scaledToFit()
                             .foregroundColor(.white)
                             .padding()
-                    } else {
-                        // image is loading
-                        ProgressView()
+                    },
+                    image: { uiImage in
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFill()
                     }
-                }
-                .frame(width: 100, height: 100)
+                )
+                .frame(width: 120, height: 120)
             }
         }
         .background(
