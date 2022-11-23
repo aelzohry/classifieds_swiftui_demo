@@ -22,6 +22,7 @@
 		46279AF2292DC58400C6971E /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF1292DC58400C6971E /* CachedAsyncImage.swift */; };
 		46279AF5292DE74500C6971E /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF4292DE74500C6971E /* ImageCache.swift */; };
 		46279AF7292DE7E600C6971E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF6292DE7E600C6971E /* ImageLoader.swift */; };
+		46279AF9292DEB6600C6971E /* ListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46279AF8292DEB6600C6971E /* ListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		46279AF1292DC58400C6971E /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
 		46279AF4292DE74500C6971E /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		46279AF6292DE7E600C6971E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		46279AF8292DEB6600C6971E /* ListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				46279ACB292D1D7400C6971E /* HomeScreenView.swift */,
 				46279AE0292D485F00C6971E /* HomeViewModel.swift */,
 				46279ADE292D389F00C6971E /* ListingView.swift */,
+				46279AF8292DEB6600C6971E /* ListingViewModel.swift */,
 			);
 			path = home;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46279ACC292D1D7400C6971E /* HomeScreenView.swift in Sources */,
+				46279AF9292DEB6600C6971E /* ListingViewModel.swift in Sources */,
 				46279AE1292D485F00C6971E /* HomeViewModel.swift in Sources */,
 				46279ADF292D389F00C6971E /* ListingView.swift in Sources */,
 				46279AE4292D585D00C6971E /* ListingDetailsScreenView.swift in Sources */,

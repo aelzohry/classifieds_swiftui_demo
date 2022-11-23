@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct ListingView: View {
-    let listing: Listing
+    private let listingViewModel: ListingViewModel
+    
+    init(listing: Listing) {
+        listingViewModel = ListingViewModel(listing: listing)
+    }
     
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(
-                    listing.createdAt.formatted(
-                        .relative(presentation: .named)
-                    )
-                )
+                Text(listingViewModel.date)
                 .font(.caption)
                 
-                Text(listing.name)
+                Text(listingViewModel.name)
                     .fontWeight(.heavy)
                     .lineLimit(1)
                 
-                Text(listing.price)
+                Text(listingViewModel.price)
                     .fontWeight(.semibold)
             }
             .padding()
             
             Spacer()
             
-            if let thumbnailUrl = listing.thumbnailUrl {
+            if let thumbnailUrl = listingViewModel.thumbnailUrl {
                 CachedAsyncImage(
                     url: thumbnailUrl,
                     error: { _ in
