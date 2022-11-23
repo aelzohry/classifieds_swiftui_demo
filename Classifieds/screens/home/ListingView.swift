@@ -13,8 +13,12 @@ struct ListingView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 4) {
-                Text(listing.createdAt)
-                    .font(.caption)
+                Text(
+                    listing.createdAt.formatted(
+                        .relative(presentation: .named)
+                    )
+                )
+                .font(.caption)
                 
                 Text(listing.name)
                     .fontWeight(.heavy)

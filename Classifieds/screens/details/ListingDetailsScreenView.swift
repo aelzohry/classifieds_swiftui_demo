@@ -26,7 +26,12 @@ struct ListingDetailsScreenView: View {
                     .fontWeight(.heavy)
                 
                 HStack {
-                    Text(listing.createdAt)
+                    Text(
+                        listing.createdAt
+                            .formatted(
+                                .relative(presentation: .named)
+                            )
+                    )
                     Spacer()
                     Text(listing.price)
                 }

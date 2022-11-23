@@ -17,6 +17,11 @@ struct HTTPClient: Requestable {
     static var defaultJSONDecoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-DD HH:mm:ss.SSS"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        
         return decoder
     }
     
